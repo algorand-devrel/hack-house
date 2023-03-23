@@ -7,11 +7,11 @@ class ApplicationState:
 app = Application("HelloWorld", state=ApplicationState)
 
 @app.external
-def hello(name: abi.String, *, output: abi.String) -> Expr:
+def hello(name: abi.String, *, output: abi.String):
     return output.set(Concat(Bytes("Hello, "), name.get()))
 
 @app.delete(authorize=Authorize.only(Global.creator_address()))
-def delete() -> Expr:
+def delete():
     return Approve()
 
 @app.external
@@ -62,6 +62,17 @@ def increment(amount: abi.Uint64, *, output: abi.Uint64 ):
         app.state.counter.set(app.state.counter + amount.get()),
         output.set(app.state.counter.get())
     )
+
+@app.external
+def another_hello(name: abi.String, *, output: abi.String):
+    hello_string = "Hello, "
+    hello_bytes = Bytes(hello_string)
+
+    given_name = name.get()
+
+    hello_name = Concat(hello_bytes, given_name)
+
+    return output.set(hello_name)
 
 app.build().export("./artifacts")
 
