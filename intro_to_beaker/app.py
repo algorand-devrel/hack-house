@@ -10,6 +10,10 @@ app = Application("HelloWorld", state=ApplicationState)
 def hello(name: abi.String, *, output: abi.String) -> Expr:
     return output.set(Concat(Bytes("Hello, "), name.get()))
 
+@app.delete(authorize=Authorize.only(Global.creator_address()))
+def delete() -> Expr:
+    return Approve()
+
 @app.external
 def add(a: abi.Uint64, b: abi.Uint64, *, output: abi.Uint64):
     return output.set(a.get() + b.get())
@@ -58,10 +62,6 @@ def increment(amount: abi.Uint64, *, output: abi.Uint64 ):
         app.state.counter.set(app.state.counter + amount.get()),
         output.set(app.state.counter.get())
     )
-
-@app.delete(authorize=Authorize.only(Global.creator_address()))
-def delete() -> Expr:
-    return Approve()
 
 app.build().export("./artifacts")
 
