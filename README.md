@@ -1,0 +1,1 @@
+This repo contains all of the developer-focused content from the Hyderabad Hack Shack held March 24-26.
