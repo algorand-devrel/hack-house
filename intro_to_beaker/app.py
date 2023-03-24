@@ -63,8 +63,16 @@ def increment(amount: abi.Uint64, *, output: abi.Uint64 ):
         output.set(app.state.counter.get())
     )
 
+@Subroutine(TealType.bytes)
+def get_hello_string(name):
+    return Concat(Bytes("Hello, "), name)
+
 @app.external
 def another_hello(name: abi.String, *, output: abi.String):
+    return output.set(get_hello_string(name.get()))
+
+@app.external
+def yet_another_hello(name: abi.String, *, output: abi.String):
     hello_string = "Hello, "
     hello_bytes = Bytes(hello_string)
 
