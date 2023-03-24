@@ -8,5 +8,5 @@ This repo contains all of the developer-focused content from the Hyderabad Hack 
 
 ## Intro to JavaScript SDK
 1. `$ cd intro_to_js_sdk`
-2. `$ npm i`
+2. `$ algokit bootstrap`
 3. `$ npx tsx index.ts`
