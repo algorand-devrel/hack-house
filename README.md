@@ -22,3 +22,6 @@ This repo contains all of the developer-focused content from the Hyderabad Hack 
 3. `poetry shell` to enter shell with proper Python venv set
 4. `python app.py` to build and interact with the smart contract
 
+## Beaker NFT Auction
+
+See https://github.com/algorand-devrel/beaker-auction/tree/alogkit
