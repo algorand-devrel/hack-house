@@ -11,13 +11,14 @@ This repo contains all of the developer-focused content from the Hyderabad Hack 
 4. `algokit localnet start`
 5. `algokit localnet explore`
 
+## Intro to JavaScript SDK
+1. `cd intro_to_js_sdk`
+2. `yarn` to install dependencies
+3. `npx tsx index.ts` to run demo script
+
 ## Intro To Beaker
 1. `cd intro_to_beaker`
 2. `algokit bootstrap all` to install dependencies
 3. `poetry shell` to enter shell with proper Python venv set
 4. `python app.py` to build and interact with the smart contract
 
-## Intro to JavaScript SDK
-1. `cd intro_to_js_sdk`
-2. `yarn` to install dependencies
-3. `npx tsx index.ts` to run demo script
