@@ -17,9 +17,7 @@ function waitForInput() {
 
 async function main() {
   // Account creation
-  // const account = algosdk.generateAccount();
-  const mn = 'indoor learn sorry column panic island suspect client model unhappy drive engage pact try crew rate purchase siren hero crop snow cushion clever able away';
-  const account = algosdk.mnemonicToSecretKey(mn);
+  const account = algosdk.generateAccount();
   console.log('Mnemonic:', algosdk.secretKeyToMnemonic(account.sk));
   console.log('Address:', account.addr);
 
