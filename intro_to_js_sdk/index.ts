@@ -28,6 +28,8 @@ async function main() {
   const algodServer = 'https://testnet-api.algonode.cloud';
   const algodPort = undefined;
   const algodClient = new algosdk.Algodv2(algodToken, algodServer, algodPort);
+
+  // get accountInfo
   let accountInfo = await algodClient.accountInformation(account.addr).do();
 
   console.log('accountInfo:', accountInfo);
